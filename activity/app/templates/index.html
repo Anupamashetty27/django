@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weekly Task View</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Use a common clean font */
+            margin: 0; /* Remove default body margin */
+            background-color: #f4f4f4; /* Light grey background */
+            color: #333; /* Dark grey text */
+            display: flex; /* Use flexbox to center content */
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            min-height: 100vh; /* Full viewport height */
+            padding-top: 50px; /* Add some space at the top */
+        }
+
+        .container {
+            background-color: #fff; /* White background for content area */
+            padding: 30px;
+            border-radius: 8px; /* Slightly rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            text-align: center; /* Center the text inside the container */
+            width: 90%; /* Make container responsive */
+            max-width: 600px; /* Max width for larger screens */
+        }
+
+        h1 {
+            color: #0056b3; /* A shade of blue for headings */
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px; /* More space between list items */
+        }
+
+        a {
+            text-decoration: none; /* Remove underline */
+            color: #007bff; /* A standard blue for links */
+            font-size: 1.3em;
+            transition: color 0.3s ease; /* Smooth color transition on hover */
+        }
+
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline; /* Add underline on hover for clarity */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weekly Tasks</h1>
+        <ul>
+            {% for day in days %}
+                <li><a href="{% url 'day_view' day=day %}">{{ day|capfirst }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
